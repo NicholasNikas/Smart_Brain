@@ -72,12 +72,6 @@ class App extends Component {
     });
   };
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000')
-  //   .then(response => response.json())
-  //   .then(console.log)
-  // }
-
   calculateFaceLocation = data => {
     const calrifaiFace =
       data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -104,7 +98,8 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch('http://localhost:3000/imageurl', {
+    // now deploying to heroku
+    fetch('https://serene-waters-61221.herokuapp.com/imageurl', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -114,7 +109,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://serene-waters-61221.herokuapp.com/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

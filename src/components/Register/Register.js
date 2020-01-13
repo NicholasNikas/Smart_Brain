@@ -12,21 +12,18 @@ class Register extends React.Component {
 
   onNameChange = event => {
     this.setState({ name: event.target.value });
-    console.log(event.target.value);
   };
 
   onEmailChange = event => {
     this.setState({ email: event.target.value });
-    console.log(event.target.value);
   };
 
   onPasswordChange = event => {
     this.setState({ password: event.target.value });
-    console.log(event.target.value);
   };
 
   onSubmitRegister = () => {
-    fetch('http://localhost:3000/register', {
+    fetch('https://serene-waters-61221.herokuapp.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

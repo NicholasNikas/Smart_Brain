@@ -99,7 +99,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
     // now deploying to heroku
-    fetch('http://smart-brain8.herokuapp.com/imageurl', {
+    fetch('http://localhost:3000/imageUrl', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -109,7 +109,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://smart-brain8.herokuapp.com/image', {
+          fetch('http://localhost:3000/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
